@@ -1,0 +1,37 @@
+{
+  "routes": [
+    {
+      "route": "/",
+      "serve": "/index.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/sobre",
+      "serve": "/sobre.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/servicos",
+      "serve": "/servicos.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/contato",
+      "serve": "/contato.html",
+      "statusCode": 200
+    },
+    {
+      "route": "/*",
+      "serve": "/index.html",
+      "statusCode": 200
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+  "mimeTypes": {
+    ".css": "text/css",
+    ".js": "application/javascript",
+    ".html": "text/html"
+  }
+}
