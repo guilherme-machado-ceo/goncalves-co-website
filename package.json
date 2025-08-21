@@ -1,0 +1,50 @@
+{
+  "name": "goncalves-co-website",
+  "version": "1.0.0",
+  "description": "Website corporativo moderno da Gonçalves & Co. - Consultoria em Comércio & Logística",
+  "main": "homepage.html",
+  "scripts": {
+    "start": "npx serve . -p 3000",
+    "dev": "npx live-server --port=3000 --entry-file=homepage.html",
+    "build": "echo 'Static site - no build process required'",
+    "deploy": "echo 'Deploy via GitHub Actions to Azure Static Web Apps'",
+    "lint:html": "npx htmlhint *.html",
+    "lint:css": "npx stylelint *.css",
+    "optimize:images": "npx imagemin imagens/*.{jpg,png} --out-dir=imagens/optimized",
+    "validate": "npm run lint:html && npm run lint:css"
+  },
+  "keywords": [
+    "consultoria",
+    "logística",
+    "comércio",
+    "são paulo",
+    "bootstrap",
+    "website",
+    "corporativo"
+  ],
+  "author": "Gonçalves & Co.",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/USERNAME/goncalves-co-website.git"
+  },
+  "homepage": "https://goncalves-co-website.azurestaticapps.net",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1",
+    "htmlhint": "^1.1.4",
+    "stylelint": "^15.11.0",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
