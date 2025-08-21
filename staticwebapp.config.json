@@ -2,23 +2,23 @@
   "routes": [
     {
       "route": "/",
-      "serve": "/homepage.html"
+      "rewrite": "/homepage.html"
     },
     {
       "route": "/home",
-      "serve": "/homepage.html"
+      "rewrite": "/homepage.html"
     },
     {
       "route": "/sobre-nos",
-      "serve": "/sobrenos.html"
+      "rewrite": "/sobrenos.html"
     },
     {
       "route": "/servicos",
-      "serve": "/nossosservicos.html"
+      "rewrite": "/nossosservicos.html"
     },
     {
       "route": "/contato",
-      "serve": "/contato.html"
+      "rewrite": "/contato.html"
     }
   ],
   "navigationFallback": {

@@ -194,6 +194,13 @@ Para dúvidas ou suporte técnico:
 - **Email**: contato@goncalvesco.com.br
 - **Telefone**: +55 (11) 99999-9999
 
+## 📊 Status do Deploy
+
+✅ Repositório configurado  
+✅ Workflow GitHub Actions ativo  
+✅ Azure Static Web Apps conectado  
+🔄 Deploy em andamento...
+
 ## 📄 Licença
 
 © 2024 - Gonçalves & Co. Todos os direitos reservados.
