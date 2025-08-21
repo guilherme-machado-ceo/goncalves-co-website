@@ -19,10 +19,12 @@ jobs:
       - name: Build And Deploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: e08db55d0a7e475d657721a281427e4ea44de570e11557bb2203fe88aa822e6301-448e17bb-0f31-4e46-b7c0-fc1e3f248ee201e23110471f141e
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_FOREST_0471F141E }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
           app_location: "/"
+          api_location: ""
+          output_location: ""
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
@@ -32,5 +34,5 @@ jobs:
       - name: Close Pull Request
         uses: Azure/static-web-apps-deploy@v1
         with:
-          azure_static_web_apps_api_token: e08db55d0a7e475d657721a281427e4ea44de570e11557bb2203fe88aa822e6301-448e17bb-0f31-4e46-b7c0-fc1e3f248ee201e23110471f141e
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_LIVELY_FOREST_0471F141E }}
           action: "close"
