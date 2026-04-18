@@ -52,6 +52,9 @@ temp/
 *.psd
 *.ai
 
+# PDF files
+*.pdf
+
 # Archive files
 *.zip
 *.rar
