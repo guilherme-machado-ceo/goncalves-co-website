@@ -1,486 +1,934 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gonçalves & Co. — Logística Integrada e Gestão de Comércio</title>
-    <meta name="description" content="Gonçalves & Co. — Especialistas em logística integrada, gestão de comércio e inovação tecnológica para cadeias globais de valor." />
-    <meta property="og:title" content="Gonçalves & Co. — Logística Integrada" />
-    <meta property="og:description" content="Soluções pragmáticas em logística, comércio global e inovação tecnológica." />
-    <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#0d0f14" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="styles.css" rel="stylesheet" />
-  </head>
-  <body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gonçalves & Co. — Hub institucional de comércio, gestão e logística. Logistic Intelligence, geopolítica aplicada, multilinguismo operacional e tecnologia QUBO-VRP.">
+<meta property="og:title" content="Gonçalves & Co. — Hub Institucional">
+<meta property="og:description" content="Comércio, Gestão e Logística com fundamento geopolítico. Parte do ecossistema Hubstry DeepTech.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0d0f14">
+<title>Gonçalves & Co. — Hub Institucional · Logistic Intelligence</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{
+  font-family:'Helvetica Neue',Arial,sans-serif;
+  background:#0d0f14;
+  color:#e8edf2;
+  line-height:1.7;
+  overflow-x:hidden;
+}
 
-    <!-- Navigation -->
-    <header>
-      <nav class="navbar navbar-expand-lg fixed-top main-nav" aria-label="Menu principal">
-        <div class="container">
-          <a class="navbar-brand" href="#home">
-            <i class="fas fa-shipping-fast me-2"></i>
-            Gonçalves & Co.
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Abrir menu"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#home">Início</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#sobre">Sobre</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#servicos">Serviços</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#iniciativas">Iniciativas</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contato">Contato</a>
-              </li>
-            </ul>
-          </div>
+/* ── TOKENS ── */
+:root{
+  --bg:#0d0f14;
+  --bg2:#141820;
+  --bg3:#1a2030;
+  --amber:#c8960a;
+  --amber-l:#e8b420;
+  --amber-pale:rgba(200,150,10,0.1);
+  --teal:#4a9fbf;
+  --teal-pale:rgba(74,159,191,0.1);
+  --green:#1e8a4a;
+  --green-pale:rgba(30,138,74,0.12);
+  --sky:#e8edf2;
+  --muted:rgba(232,237,242,0.55);
+  --dim:rgba(232,237,242,0.25);
+  --border:rgba(232,237,242,0.08);
+  --border-a:rgba(200,150,10,0.25);
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;
+  background:rgba(13,15,20,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:0.5px solid var(--border);
+  z-index:100;
+  padding:0 2rem;
+  height:56px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.nav-brand{
+  font-size:15px;font-weight:700;
+  color:var(--amber);
+  text-decoration:none;
+  letter-spacing:0.02em;
+  white-space:nowrap;
+}
+.nav-brand span{font-weight:300;color:var(--sky)}
+.nav-links{
+  display:flex;gap:0;
+  list-style:none;
+}
+.nav-links a{
+  display:block;
+  padding:0 0.85rem;
+  height:56px;
+  line-height:56px;
+  font-size:12.5px;
+  letter-spacing:0.04em;
+  color:var(--muted);
+  text-decoration:none;
+  border-bottom:2px solid transparent;
+  transition:color 0.15s, border-color 0.15s;
+  white-space:nowrap;
+}
+.nav-links a:hover{color:var(--sky);border-bottom-color:var(--amber)}
+.nav-toggle{
+  display:none;
+  background:none;border:none;
+  color:var(--sky);font-size:22px;cursor:pointer;
+  padding:0.25rem;
+}
+@media(max-width:860px){
+  .nav-links{
+    display:none;position:fixed;
+    top:56px;left:0;right:0;
+    background:var(--bg2);
+    flex-direction:column;gap:0;
+    border-bottom:0.5px solid var(--border);
+    padding:0.5rem 0;
+  }
+  .nav-links.open{display:flex}
+  .nav-links a{height:44px;line-height:44px;padding:0 2rem;border-bottom:none;border-left:3px solid transparent}
+  .nav-links a:hover{border-left-color:var(--amber);border-bottom:none}
+  .nav-toggle{display:block}
+}
+
+/* ── LAYOUT ── */
+.container{max-width:1080px;margin:0 auto;padding:0 2rem}
+section{padding:5rem 0}
+.eyebrow{
+  font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
+  font-weight:700;color:var(--amber);margin-bottom:0.75rem;
+  display:block;
+}
+.section-title{
+  font-size:clamp(1.5rem,3vw,2.2rem);
+  font-weight:300;letter-spacing:-0.01em;
+  line-height:1.2;margin-bottom:1rem;
+}
+.section-lead{
+  font-size:15px;color:var(--muted);
+  max-width:600px;line-height:1.8;margin-bottom:2.5rem;
+}
+hr.rule{border:none;border-top:0.5px solid var(--border)}
+hr.rule-a{border:none;border-top:0.5px solid var(--border-a)}
+
+/* ── HERO ── */
+#home{
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:7rem 0 4rem;
+  position:relative;
+  overflow:hidden;
+}
+#home::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 50% at 80% 30%, rgba(74,159,191,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 10% 80%, rgba(200,150,10,0.04) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-eyebrow{
+  font-size:10px;letter-spacing:0.24em;text-transform:uppercase;
+  color:var(--teal);font-weight:600;margin-bottom:1.5rem;display:block;
+}
+.hero-title{
+  font-size:clamp(2.4rem,6vw,4.2rem);
+  font-weight:300;letter-spacing:-0.025em;
+  line-height:1.08;margin-bottom:1.5rem;
+}
+.hero-title strong{font-weight:700;color:var(--amber)}
+.hero-sub{
+  font-size:16px;color:var(--muted);
+  max-width:580px;line-height:1.85;margin-bottom:2.5rem;
+}
+.hero-quote{
+  border-left:2px solid var(--amber);
+  padding:0.75rem 1.25rem;
+  font-size:13.5px;
+  font-style:italic;
+  color:var(--sky);
+  line-height:1.75;
+  max-width:540px;
+  margin-bottom:2.5rem;
+  background:var(--amber-pale);
+}
+.hero-quote cite{
+  display:block;font-style:normal;
+  font-size:10.5px;letter-spacing:0.1em;
+  color:var(--amber);margin-top:0.5rem;
+  text-transform:uppercase;
+}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:0.75rem;margin-bottom:3rem}
+.btn{
+  display:inline-block;padding:0.6rem 1.4rem;
+  font-size:12.5px;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;border-radius:2px;transition:all 0.15s;
+}
+.btn-primary{background:var(--amber);color:#0d0f14;border:1px solid var(--amber)}
+.btn-primary:hover{background:var(--amber-l);border-color:var(--amber-l)}
+.btn-outline{background:transparent;color:var(--sky);border:0.5px solid var(--border)}
+.btn-outline:hover{border-color:var(--amber);color:var(--amber)}
+.hero-flags{
+  display:flex;gap:6px;flex-wrap:wrap;align-items:center;
+}
+.flag-tag{
+  font-size:10px;letter-spacing:0.1em;
+  padding:3px 8px;border:0.5px solid var(--border);
+  color:var(--dim);border-radius:2px;
+}
+.flag-tag.op{border-color:var(--teal);color:var(--teal)}
+
+/* ── SOBRE ── */
+#sobre{background:var(--bg2)}
+.sobre-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+  align-items:start;
+}
+@media(max-width:700px){.sobre-grid{grid-template-columns:1fr}}
+.sobre-block{border-left:2px solid var(--amber);padding-left:1.25rem}
+.sobre-block h3{font-size:14px;font-weight:600;color:var(--sky);margin-bottom:0.5rem}
+.sobre-block p{font-size:13.5px;color:var(--muted);line-height:1.75}
+.triptyque{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);
+  border:0.5px solid var(--border);
+  margin:2rem 0;
+}
+.tryp-card{background:var(--bg);padding:1.25rem 1rem;text-align:center}
+.tryp-lang{font-size:18px;font-weight:300;color:var(--amber);letter-spacing:-0.01em;margin-bottom:4px}
+.tryp-term{font-size:11px;font-weight:600;color:var(--sky);letter-spacing:0.06em;margin-bottom:6px}
+.tryp-gloss{font-size:11px;color:var(--muted);line-height:1.5;font-style:italic}
+
+/* ── FUNDAMENTOS ── */
+#fundamentos{background:var(--bg)}
+.paper-anchor{
+  border:0.5px solid var(--border-a);
+  padding:2rem;
+  margin-bottom:2.5rem;
+  position:relative;
+  overflow:hidden;
+}
+.paper-anchor::before{
+  content:'';
+  position:absolute;top:0;left:0;
+  width:4px;height:100%;
+  background:var(--amber);
+}
+.paper-tag{
+  font-size:9px;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin-bottom:0.5rem;display:block;
+}
+.paper-title{font-size:18px;font-weight:500;color:var(--sky);margin-bottom:0.4rem;line-height:1.3}
+.paper-sub{font-size:13px;color:var(--muted);margin-bottom:1rem;font-style:italic}
+.paper-abstract{font-size:13.5px;color:var(--muted);line-height:1.75;margin-bottom:1rem}
+.paper-kw{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.25rem}
+.kw{font-size:10px;padding:2px 8px;border:0.5px solid var(--border);color:var(--dim);border-radius:2px}
+.paper-meta{
+  display:flex;flex-wrap:wrap;gap:1.5rem;
+  font-size:11px;color:var(--muted);
+  border-top:0.5px solid var(--border);padding-top:0.75rem;
+}
+.paper-meta a{color:var(--teal);text-decoration:none}
+.paper-meta a:hover{color:var(--amber)}
+
+.papers-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.5rem;
+}
+.paper-card{
+  border:0.5px solid var(--border);
+  padding:1.5rem;
+  position:relative;
+}
+.paper-card::before{
+  content:'';position:absolute;top:0;left:0;
+  width:100%;height:2px;
+  background:var(--teal);
+}
+.paper-card.amber::before{background:var(--amber)}
+.paper-card.green::before{background:var(--green)}
+.pc-tag{font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:0.4rem;display:block}
+.paper-card.amber .pc-tag{color:var(--amber)}
+.paper-card.green .pc-tag{color:var(--green)}
+.pc-title{font-size:14px;font-weight:600;color:var(--sky);margin-bottom:0.4rem;line-height:1.3}
+.pc-body{font-size:12.5px;color:var(--muted);line-height:1.65;margin-bottom:0.75rem}
+.pc-doi{font-size:11px;color:var(--teal);text-decoration:none}
+.pc-doi:hover{color:var(--amber)}
+
+/* ── ECOSSISTEMA ── */
+#ecossistema{background:var(--bg2)}
+.eco-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem;
+}
+.eco-card{
+  border:0.5px solid var(--border);
+  padding:1.5rem;
+  border-top:2px solid var(--teal);
+  background:var(--bg);
+}
+.eco-card.amber{border-top-color:var(--amber)}
+.eco-card.green{border-top-color:var(--green)}
+.eco-card.purple{border-top-color:#7c5cbf}
+.eco-name{font-size:14px;font-weight:700;color:var(--sky);margin-bottom:3px}
+.eco-role{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);margin-bottom:0.75rem}
+.eco-card.amber .eco-role{color:var(--amber)}
+.eco-card.green .eco-role{color:var(--green)}
+.eco-card.purple .eco-role{color:#7c5cbf}
+.eco-body{font-size:13px;color:var(--muted);line-height:1.65}
+.eco-link{
+  display:inline-block;margin-top:0.75rem;
+  font-size:11px;color:var(--teal);text-decoration:none;
+  border-bottom:0.5px solid transparent;
+}
+.eco-link:hover{border-bottom-color:var(--teal)}
+
+/* ── APP ── */
+#app{background:var(--bg)}
+.app-wrapper{
+  border:0.5px solid var(--border-a);
+  overflow:hidden;
+}
+.app-header{
+  background:var(--bg3);
+  padding:1rem 1.5rem;
+  border-bottom:0.5px solid var(--border);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:0.5rem;
+}
+.app-title{font-size:13px;font-weight:600;color:var(--sky)}
+.app-badge{
+  font-size:9px;letter-spacing:0.14em;text-transform:uppercase;
+  padding:2px 8px;border:0.5px solid var(--green);
+  color:var(--green);border-radius:2px;
+}
+.app-tabs{
+  display:flex;
+  border-bottom:0.5px solid var(--border);
+  background:var(--bg2);
+}
+.app-tab{
+  padding:0.75rem 1.25rem;
+  font-size:12px;letter-spacing:0.04em;
+  color:var(--muted);cursor:pointer;
+  border-bottom:2px solid transparent;
+  background:none;border-top:none;border-left:none;border-right:none;
+  transition:all 0.15s;white-space:nowrap;
+}
+.app-tab.active{color:var(--amber);border-bottom-color:var(--amber)}
+.app-tab:hover:not(.active){color:var(--sky)}
+.app-panel{display:none;padding:1.5rem}
+.app-panel.active{display:block}
+
+/* Câmbio */
+.fx-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:1px;background:var(--border);
+  border:0.5px solid var(--border);
+  margin-bottom:1rem;
+}
+.fx-card{background:var(--bg);padding:1rem 0.75rem;text-align:center}
+.fx-pair{font-size:10px;letter-spacing:0.1em;color:var(--muted);margin-bottom:4px}
+.fx-rate{font-size:22px;font-weight:300;color:var(--amber);line-height:1;letter-spacing:-0.01em}
+.fx-sub{font-size:10px;color:var(--dim);margin-top:3px}
+.fx-status{font-size:11px;color:var(--muted);margin-top:0.75rem}
+.fx-status .dot{
+  display:inline-block;width:6px;height:6px;
+  border-radius:50%;background:var(--green);
+  margin-right:5px;vertical-align:middle;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.fx-error{font-size:12px;color:rgba(200,80,80,0.8);padding:1rem}
+
+/* Clima portos */
+.porto-select{
+  background:var(--bg3);border:0.5px solid var(--border);
+  color:var(--sky);padding:0.5rem 0.75rem;
+  font-size:13px;border-radius:2px;
+  margin-bottom:1rem;cursor:pointer;width:100%;max-width:300px;
+}
+.clima-card{
+  border:0.5px solid var(--border);padding:1.25rem;
+  margin-top:0.75rem;
+}
+.clima-cidade{font-size:14px;font-weight:600;color:var(--sky);margin-bottom:0.25rem}
+.clima-dados{display:flex;flex-wrap:wrap;gap:1.5rem;margin-top:0.75rem}
+.clima-item .ci-label{font-size:10px;letter-spacing:0.1em;color:var(--muted);text-transform:uppercase}
+.clima-item .ci-val{font-size:20px;font-weight:300;color:var(--teal);line-height:1.1}
+.clima-item .ci-unit{font-size:11px;color:var(--dim)}
+.clima-loading{font-size:13px;color:var(--muted);padding:1rem 0}
+
+/* ── CONTATO ── */
+#contato{background:var(--bg2)}
+.contato-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+  align-items:start;
+}
+@media(max-width:700px){.contato-grid{grid-template-columns:1fr}}
+.contato-info{font-size:13.5px;color:var(--muted);line-height:1.8}
+.contato-info a{color:var(--teal);text-decoration:none}
+.contato-info a:hover{color:var(--amber)}
+.contato-label{
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--amber);margin:1.25rem 0 0.25rem;display:block;
+}
+.form-group{margin-bottom:1rem}
+.form-group label{
+  display:block;font-size:11px;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:0.35rem;
+}
+.form-group input,.form-group textarea{
+  width:100%;
+  background:var(--bg3);border:0.5px solid var(--border);
+  color:var(--sky);padding:0.65rem 0.85rem;
+  font-size:13.5px;font-family:inherit;
+  border-radius:2px;transition:border-color 0.15s;
+}
+.form-group input:focus,.form-group textarea:focus{
+  outline:none;border-color:var(--amber);
+}
+.form-group textarea{resize:vertical;min-height:100px}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--bg);
+  border-top:0.5px solid var(--border);
+  padding:2rem 0;
+  font-size:11.5px;color:var(--dim);
+  line-height:1.9;
+}
+footer a{color:var(--teal);text-decoration:none}
+footer a:hover{color:var(--amber)}
+.footer-inner{
+  display:flex;flex-wrap:wrap;
+  justify-content:space-between;gap:1rem;
+  align-items:flex-start;
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#home" class="nav-brand"><strong>Gonçalves</strong> <span>&amp; Co.</span></a>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="#home">Início</a></li>
+    <li><a href="#sobre">Fundamento</a></li>
+    <li><a href="#fundamentos">Corpus</a></li>
+    <li><a href="#ecossistema">Ecossistema</a></li>
+    <li><a href="#app">App</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section id="home">
+  <div class="container">
+    <span class="hero-eyebrow">Hub Institucional · Comércio · Gestão · Logística · Logistic Intelligence</span>
+    <h1 class="hero-title">
+      Da Sereníssima<br>
+      ao <strong>Algoritmo.</strong><br>
+      <span style="color:var(--teal);font-size:0.7em;font-weight:300">Geopolítica é business intelligence desde os fenícios.</span>
+    </h1>
+    <p class="hero-sub">
+      A Gonçalves &amp; Co. opera na interseção de comércio exterior, gestão estratégica e logística com leitura geopolítica e multilinguismo como infraestrutura operacional. Parte do ecossistema Hubstry DeepTech. Horizonte de 30 anos.
+    </p>
+    <blockquote class="hero-quote">
+      "A empresa não é uma forma histórica contingente — é o operador constante da organização do valor nas sociedades humanas. Do sal ao algoritmo, passando pela colleganza veneziana, pela VOC (Vereenigde Oost-Indische Compagnie — Companhia Holandesa das Índias Orientais, 1602, primeira empresa de capital aberto da história) e pelos judeus de Recife que fundaram Nova York: a empresa permanece."
+      <cite>Do Sal ao Algoritmo — Teoria da Empresa como Instituição Civilizatória Pancrônica · Gonçalves Machado, 2026</cite>
+    </blockquote>
+    <div class="hero-ctas">
+      <a href="#fundamentos" class="btn btn-primary">Corpus Intelectual</a>
+      <a href="https://goncalvesandco-logistic-intelligence.netlify.app/" target="_blank" class="btn btn-outline">Logistic Intelligence →</a>
+      <a href="#app" class="btn btn-outline">App Operacional</a>
+    </div>
+    <div class="hero-flags">
+      <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-right:6px">Operacionais:</span>
+      <span class="flag-tag op">PT</span>
+      <span class="flag-tag op">EN</span>
+      <span class="flag-tag op">ES</span>
+      <span class="flag-tag op">DE</span>
+      <span class="flag-tag op">IT</span>
+      <span class="flag-tag op">FR</span>
+      <span class="flag-tag op">RU</span>
+      <span class="flag-tag op">SCAN</span>
+      <span style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--dim);margin-left:8px;margin-right:6px">Acervo:</span>
+      <span class="flag-tag">LA</span>
+      <span class="flag-tag">VÈN</span>
+      <span class="flag-tag">YI</span>
+      <span class="flag-tag">LAD</span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule-a">
+
+<!-- ══ FUNDAMENTO ══ -->
+<section id="sobre">
+  <div class="container">
+    <span class="eyebrow">Fundamento filosófico</span>
+    <h2 class="section-title">A empresa como instituição civilizatória</h2>
+    <p class="section-lead">O posicionamento da Gonçalves &amp; Co. tem raiz histórica e filosófica documentada. Geopolítica e business intelligence nunca foram disciplinas separadas — são a mesma coisa desde os fenícios.</p>
+
+    <div class="triptyque">
+      <div class="tryp-card">
+        <div class="tryp-lang">impresa</div>
+        <div class="tryp-term">Tradição Românica</div>
+        <div class="tryp-gloss">Aquilo que se tomou nas mãos. Apreensão do possível. Identidade semiótica antes de qualquer regulamentação jurídica.</div>
+      </div>
+      <div class="tryp-card">
+        <div class="tryp-lang">bauen</div>
+        <div class="tryp-term">Tradição Germânica</div>
+        <div class="tryp-gloss">Construir é habitar; habitar é ser. Heidegger: ich bin e bauen partilham a mesma raiz proto-germânica. O Venture Builder habita o que constrói.</div>
+      </div>
+      <div class="tryp-card">
+        <div class="tryp-lang">negotium</div>
+        <div class="tryp-term">Tradição Latina</div>
+        <div class="tryp-gloss">nec + otium: negação ativa do ócio. Benveniste: o empreendimento como modo de ser no mundo, não como opção entre outras.</div>
+      </div>
+    </div>
+
+    <div class="sobre-grid">
+      <div>
+        <div class="sobre-block" style="margin-bottom:1.5rem">
+          <h3>A cadeia geopolítica-comercial</h3>
+          <p>Fenícios → República de Veneza → VOC (Vereenigde Oost-Indische Compagnie — Companhia Holandesa das Índias Orientais, 1602, primeira empresa de capital aberto da história moderna) e WIC (West-Indische Compagnie — Companhia Holandesa das Índias Ocidentais, 1621) → Brasil Holandês → Recife-Nova York. A genealogia do capitalismo financeiro moderno passa pelo Nordeste brasileiro, pelo calvinismo genebrino e pelo Kahal Zur Israel de Recife — a célula fundadora da primeira comunidade judaica da América do Norte. Geopolítica não é contexto externo ao negócio: é negócio.</p>
         </div>
-      </nav>
-    </header>
-
-    <main>
-
-      <!-- Hero Section -->
-      <section id="home" class="hero-section d-flex align-items-center">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6 fade-in-up">
-              <h1 class="hero-title">
-                Logística <span class="text-accent">Inteligente</span><br />
-                para o <span class="text-accent-secondary">Futuro</span>
-              </h1>
-              <p class="hero-subtitle">
-                Especialistas em logística integrada, gestão de comércio e
-                inovação tecnológica aplicada a cadeias globais de valor.
-              </p>
-              <div class="hero-buttons">
-                <a href="#sobre" class="btn btn-accent me-3">
-                  <i class="fas fa-rocket me-2"></i>Conheça Nossa Visão
-                </a>
-                <a href="#contato" class="btn btn-accent-outline">
-                  <i class="fas fa-envelope me-2"></i>Fale Conosco
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-6 d-flex justify-content-center mt-5 mt-lg-0">
-              <!-- Abstract logistics network SVG -->
-              <svg class="hero-svg" viewBox="0 0 420 340" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                <defs>
-                  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.15"/>
-                    <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
-                  </radialGradient>
-                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.6"/>
-                    <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.4"/>
-                  </linearGradient>
-                </defs>
-                <!-- Glow background -->
-                <ellipse cx="210" cy="170" rx="180" ry="140" fill="url(#glow)"/>
-                <!-- Route lines -->
-                <line x1="60" y1="80" x2="210" y2="50" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
-                <line x1="210" y1="50" x2="360" y2="100" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
-                <line x1="360" y1="100" x2="340" y2="250" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.6"/>
-                <line x1="340" y1="250" x2="190" y2="290" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-                <line x1="190" y1="290" x2="60" y2="240" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-                <line x1="60" y1="240" x2="60" y2="80" stroke="url(#lineGrad)" stroke-width="1" stroke-dasharray="4 3" opacity="0.5"/>
-                <!-- Cross lines -->
-                <line x1="60" y1="80" x2="340" y2="250" stroke="#c9a84c" stroke-width="0.5" opacity="0.25"/>
-                <line x1="360" y1="100" x2="190" y2="290" stroke="#3b82f6" stroke-width="0.5" opacity="0.2"/>
-                <line x1="210" y1="50" x2="60" y2="240" stroke="#c9a84c" stroke-width="0.5" opacity="0.2"/>
-                <!-- Centre hub -->
-                <circle cx="210" cy="170" r="18" fill="#1e2330" stroke="#c9a84c" stroke-width="1.5"/>
-                <circle cx="210" cy="170" r="8" fill="#c9a84c" opacity="0.9"/>
-                <!-- Outer nodes -->
-                <circle cx="60" cy="80" r="7" fill="#1e2330" stroke="#c9a84c" stroke-width="1.5"/>
-                <circle cx="60" cy="80" r="3" fill="#c9a84c"/>
-                <circle cx="210" cy="50" r="6" fill="#1e2330" stroke="#3b82f6" stroke-width="1.5"/>
-                <circle cx="210" cy="50" r="3" fill="#3b82f6"/>
-                <circle cx="360" cy="100" r="7" fill="#1e2330" stroke="#c9a84c" stroke-width="1.5"/>
-                <circle cx="360" cy="100" r="3" fill="#c9a84c"/>
-                <circle cx="340" cy="250" r="6" fill="#1e2330" stroke="#3b82f6" stroke-width="1.5"/>
-                <circle cx="340" cy="250" r="3" fill="#3b82f6"/>
-                <circle cx="190" cy="290" r="7" fill="#1e2330" stroke="#c9a84c" stroke-width="1.5"/>
-                <circle cx="190" cy="290" r="3" fill="#c9a84c"/>
-                <circle cx="60" cy="240" r="6" fill="#1e2330" stroke="#3b82f6" stroke-width="1.5"/>
-                <circle cx="60" cy="240" r="3" fill="#3b82f6"/>
-                <!-- Mid nodes -->
-                <circle cx="130" cy="145" r="4" fill="#1e2330" stroke="#c9a84c" stroke-width="1" opacity="0.7"/>
-                <circle cx="290" cy="125" r="4" fill="#1e2330" stroke="#3b82f6" stroke-width="1" opacity="0.7"/>
-                <circle cx="270" cy="225" r="4" fill="#1e2330" stroke="#c9a84c" stroke-width="1" opacity="0.7"/>
-                <!-- Labels -->
-                <text x="22" y="76" font-size="9" fill="#8b95a8" font-family="sans-serif">BRA</text>
-                <text x="196" y="40" font-size="9" fill="#8b95a8" font-family="sans-serif">EUR</text>
-                <text x="365" y="97" font-size="9" fill="#8b95a8" font-family="sans-serif">ASI</text>
-                <text x="346" y="268" font-size="9" fill="#8b95a8" font-family="sans-serif">AFR</text>
-                <text x="163" y="307" font-size="9" fill="#8b95a8" font-family="sans-serif">USA</text>
-                <text x="30" y="258" font-size="9" fill="#8b95a8" font-family="sans-serif">ARG</text>
-              </svg>
-            </div>
-          </div>
+        <div class="sobre-block" style="margin-bottom:1.5rem">
+          <h3>A colleganza veneziana como ancestral</h3>
+          <p>A Sereníssima República de Veneza (697–1797) criou o primeiro contrato de capital de risco documentado da história — a <em>colleganza</em> — e a primeira rede sistematizada de inteligência geopolítica (os <em>baili</em>). O vêneto, língua do comércio mediterrâneo por onze séculos, está nas línguas de herança da Gonçalves &amp; Co. por razão estrutural, não ornamental.</p>
         </div>
-      </section>
-
-      <!-- Sobre Section -->
-      <section id="sobre" class="py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 text-center mb-5">
-              <h2 class="section-title fade-in-up">Sobre a Gonçalves & Co.</h2>
-              <p class="section-subtitle fade-in-up">
-                Unidade estratégica do ecossistema Overall Consultoria 720°
-              </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-8 mx-auto">
-              <article class="about-card fade-in-up">
-                <p class="lead text-center mb-4">
-                  Especializada em
-                  <strong class="text-accent">logística integrada</strong>,
-                  <strong class="text-accent-secondary">gestão de comércio</strong> e
-                  <strong class="text-accent">inovação tecnológica</strong>
-                  aplicada a cadeias globais de valor.
-                </p>
-                <p class="text-center">
-                  Atuamos com foco em <strong>soluções pragmáticas</strong>,
-                  visão sistêmica e alinhamento aos desafios da economia do
-                  século XXI.
-                </p>
-                <div class="text-center mt-4">
-                  <div class="mission-box">
-                    <h5 class="text-accent-secondary">Nosso Propósito</h5>
-                    <p>
-                      Catalisar a transição para modelos logísticos mais
-                      <strong>inteligentes, sustentáveis e conectados globalmente</strong>.
-                    </p>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Serviços Section -->
-      <section id="servicos" class="py-5 section-alt">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 text-center mb-5">
-              <h2 class="section-title fade-in-up">Nossos Serviços</h2>
-              <p class="section-subtitle fade-in-up">
-                Soluções integradas para o futuro da logística
-              </p>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-              <article class="service-card h-100 fade-in-up">
-                <div class="card-body text-center">
-                  <div class="service-icon mb-3">
-                    <i class="fas fa-brain"></i>
-                  </div>
-                  <h5 class="card-title">Gestão Inteligente</h5>
-                  <p class="card-text">
-                    Big data, modelos preditivos e geointeligência logística para
-                    otimização de processos.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="service-card h-100 fade-in-up">
-                <div class="card-body text-center">
-                  <div class="service-icon mb-3">
-                    <i class="fas fa-leaf"></i>
-                  </div>
-                  <h5 class="card-title">Logística Verde</h5>
-                  <p class="card-text">
-                    Energia limpa, mobilidade sustentável e soluções ecológicas
-                    para cadeias de valor.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <article class="service-card h-100 fade-in-up">
-                <div class="card-body text-center">
-                  <div class="service-icon mb-3">
-                    <i class="fas fa-globe"></i>
-                  </div>
-                  <h5 class="card-title">Comércio Global</h5>
-                  <p class="card-text">
-                    Estratégias para mercados internacionais com foco em
-                    compliance e ESG.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Iniciativas Section -->
-      <section id="iniciativas" class="py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 text-center mb-5">
-              <h2 class="section-title fade-in-up">Iniciativas em Destaque</h2>
-              <p class="section-subtitle fade-in-up">Inovação na fronteira da tecnologia</p>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-6">
-              <article class="initiative-card fade-in-up h-100">
-                <div class="card-body">
-                  <h5 class="card-title text-accent-secondary">
-                    <i class="fas fa-atom me-2"></i>
-                    Lógica Quântica aplicada à Logística
-                  </h5>
-                  <p class="card-text">
-                    Monitoramos as fronteiras da
-                    <strong>computação quântica</strong> para antecipar sua
-                    aplicação em gestão inteligente, big data e modelos
-                    preditivos.
-                  </p>
-                  <p class="card-text">
-                    Preparamos empresas para a próxima revolução tecnológica, com
-                    ferramentas que transcendem os limites da computação
-                    tradicional.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div class="col-lg-6">
-              <article class="initiative-card fade-in-up h-100">
-                <div class="card-body">
-                  <h5 class="card-title text-accent">
-                    <i class="fas fa-handshake me-2"></i>
-                    Eixo Transatlântico — Mercado Alemão
-                  </h5>
-                  <p class="card-text">
-                    Criamos pontes estratégicas com o
-                    <strong>mercado verde alemão</strong>, focando em energia
-                    limpa, mobilidade sustentável e logística verde.
-                  </p>
-                  <p class="card-text">
-                    Respondemos a megatendências como envelhecimento demográfico
-                    na Europa e necessidade por profissionais globais
-                    qualificados.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Ecossistema Section -->
-      <section class="py-5 section-alt">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 text-center mb-5">
-              <h2 class="section-title fade-in-up">Ecossistema Overall 720°</h2>
-              <p class="section-subtitle fade-in-up">
-                Colaboração multissetorial para impacto global
-              </p>
-            </div>
-          </div>
-          <div class="row g-4">
-            <div class="col-lg-4">
-              <article class="ecosystem-card fade-in-up h-100">
-                <div class="card-body text-center">
-                  <h6 class="card-title text-accent-secondary">Hubstry</h6>
-                  <p class="card-text">
-                    Deep tech em automação inteligente e pipelines de dados
-                    multimodais.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div class="col-lg-4">
-              <article class="ecosystem-card fade-in-up h-100">
-                <div class="card-body text-center">
-                  <h6 class="card-title text-accent">Lexiograph</h6>
-                  <p class="card-text">
-                    Design estratégico, front-end e comunicação visual de impacto
-                    global.
-                  </p>
-                </div>
-              </article>
-            </div>
-            <div class="col-lg-4">
-              <article class="ecosystem-card fade-in-up h-100">
-                <div class="card-body text-center">
-                  <h6 class="card-title text-accent-secondary">
-                    Lessa Machado Negócios
-                  </h6>
-                  <p class="card-text">
-                    Marketing em nichos linguísticos internacionais e expansão
-                    multilíngue.
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contato Section -->
-      <section id="contato" class="py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12 text-center mb-5">
-              <h2 class="section-title fade-in-up">Entre em Contato</h2>
-              <p class="section-subtitle fade-in-up">
-                Vamos construir o futuro da logística juntos
-              </p>
-            </div>
-          </div>
-          <div class="row g-5">
-            <!-- Contact Form -->
-            <div class="col-lg-7">
-              <form id="contact-form" class="contact-form fade-in-up" action="#" novalidate>
-                <div class="mb-4">
-                  <label for="contact-name" class="form-label">Nome</label>
-                  <input type="text" class="form-control" id="contact-name" name="name" placeholder="Seu nome completo" required />
-                </div>
-                <div class="mb-4">
-                  <label for="contact-email" class="form-label">E-mail</label>
-                  <input type="email" class="form-control" id="contact-email" name="email" placeholder="seu@email.com" required />
-                </div>
-                <div class="mb-4">
-                  <label for="contact-company" class="form-label">Empresa</label>
-                  <input type="text" class="form-control" id="contact-company" name="company" placeholder="Nome da sua empresa" />
-                </div>
-                <div class="mb-4">
-                  <label for="contact-message" class="form-label">Mensagem</label>
-                  <textarea class="form-control" id="contact-message" name="message" rows="5" placeholder="Como podemos ajudar?" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-accent w-100">
-                  <i class="fas fa-paper-plane me-2"></i>Enviar Mensagem
-                </button>
-                <div id="form-feedback" class="mt-3 text-center" aria-live="polite"></div>
-              </form>
-            </div>
-            <!-- Contact Info -->
-            <div class="col-lg-5">
-              <div class="contact-info fade-in-up">
-                <div class="contact-item mb-4">
-                  <i class="fas fa-envelope contact-icon text-accent"></i>
-                  <div class="ms-3">
-                    <h6>E-mail</h6>
-                    <a href="mailto:goncalvesecodeepbusinesshub@gmail.com" class="contact-link">
-                      goncalvesecodeepbusinesshub@gmail.com
-                    </a>
-                  </div>
-                </div>
-                <div class="contact-item mb-4">
-                  <i class="fas fa-phone contact-icon text-accent"></i>
-                  <div class="ms-3">
-                    <h6>Telefone</h6>
-                    <a href="tel:+5511994555772" class="contact-link">
-                      (11) 99455-5772
-                    </a>
-                  </div>
-                </div>
-                <div class="mt-4">
-                  <h6 class="mb-3">Redes Sociais</h6>
-                  <div class="social-links">
-                    <a
-                      href="https://www.facebook.com/profile.php?id=61573348116703"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="social-link me-3"
-                      aria-label="Facebook"
-                    >
-                      <i class="fab fa-facebook"></i>
-                    </a>
-                    <a
-                      href="https://www.linkedin.com/in/gon%C3%A7alves-e-co-com%C3%A9rcio-gest%C3%A3o-e-log%C3%ADstica-/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="social-link me-3"
-                      aria-label="LinkedIn"
-                    >
-                      <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a
-                      href="https://www.notion.so/Gon-alves-Co-Com-rcio-Gest-o-e-Log-stica-1db467d35487807da810fbf3aacfff3b?pvs=21"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="social-link"
-                      aria-label="Notion"
-                    >
-                      <i class="fas fa-file-alt"></i>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="site-footer py-4">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-            <span class="footer-brand">
-              <i class="fas fa-shipping-fast me-2"></i>Gonçalves & Co.
-            </span>
-            <p class="footer-tagline mb-0 mt-1">
-              Logística Integrada e Gestão de Comércio
-            </p>
-          </div>
-          <div class="col-md-6 text-center text-md-end">
-            <ul class="footer-links list-unstyled mb-0">
-              <li><a href="#sobre">Sobre</a></li>
-              <li><a href="#servicos">Serviços</a></li>
-              <li><a href="#iniciativas">Iniciativas</a></li>
-              <li><a href="#contato">Contato</a></li>
-            </ul>
-          </div>
-        </div>
-        <hr class="footer-divider" />
-        <div class="text-center">
-          <p class="mb-0">
-            &copy; 2026 Gonçalves & Co. Todos os direitos reservados.
-          </p>
-          <p class="mb-0 mt-1">
-            <small>Parte do ecossistema Overall Consultoria 720°</small>
-          </p>
+        <div class="sobre-block">
+          <h3>Pancronia e horizonte de 30 anos</h3>
+          <p>A empresa não pertence a nenhuma época — pertence a todas. É a estrutura da <em>longue durée</em> (Braudel). A Gonçalves &amp; Co. opera com horizonte geracional de 30 anos, não com ciclo de exit de 5 a 7 anos. Venture Building de longa duração é a praxis que corresponde a essa proposição.</p>
         </div>
       </div>
-    </footer>
+      <div>
+        <div class="sobre-block" style="margin-bottom:1.5rem">
+          <h3>Posicionamento operacional</h3>
+          <p>Estratégico e tático. Na ponta, via outsourcing especializado, consórcios, PPPs (Parcerias Público-Privadas) e joint ventures com operadores qualificados. O modelo é de integrador estratégico: projeta a solução, orquestra os parceiros de ponta, responde pelo resultado.</p>
+        </div>
+        <div class="sobre-block" style="margin-bottom:1.5rem">
+          <h3>Nosso propósito</h3>
+          <p>Catalisar a transição para modelos logísticos mais inteligentes, sustentáveis e conectados globalmente — com fundamento geopolítico, multilinguismo operacional e tecnologia de otimização quântica-ready como diferenciais não replicáveis.</p>
+        </div>
+        <div class="sobre-block">
+          <h3>Parte do ecossistema Hubstry</h3>
+          <p>A Gonçalves &amp; Co. é o nó de interface entre a inteligência geopolítica da <strong style="color:var(--amber)">Overall 720°</strong> e a capacidade tecnológica da <strong style="color:var(--teal)">Hubstry DeepTech</strong>. Cada entidade tem papel distinto no ecossistema de 30 anos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-  </body>
+<hr class="rule">
+
+<!-- ══ CORPUS ══ -->
+<section id="fundamentos">
+  <div class="container">
+    <span class="eyebrow">Corpus intelectual</span>
+    <h2 class="section-title">Fundamentos publicados</h2>
+    <p class="section-lead">Papers, preprints e notas técnicas depositados no Zenodo sob licença aberta. O rigor intelectual é o ativo não replicável do ecossistema.</p>
+
+    <!-- PAPER ÂNCORA -->
+    <div class="paper-anchor">
+      <span class="paper-tag">Paper âncora · Teoria da Empresa · CC BY 4.0</span>
+      <div class="paper-title">Do Sal ao Algoritmo: Teoria da Empresa como Instituição Civilizatória Pancrônica</div>
+      <div class="paper-sub">Venture Building, Zeitgeist Emergente e o Espaço Infinito do Possível</div>
+      <p class="paper-abstract">
+        Em 1602, um grupo de mercadores holandeses criou a VOC (Vereenigde Oost-Indische Compagnie — Companhia das Índias Orientais) — a primeira empresa de capital aberto da história, com acionistas, conselho de administração e responsabilidade limitada. Trinta anos depois, no mesmo ecossistema institucional, estourava a <em>tulpenwoede</em> — a mania das tulipas (1634–1637), primeira bolha especulativa documentada: bulbos de tulipa chegaram a valer mais do que casas em Amsterdã antes do colapso em horas. E em 1654, quando os holandeses perderam o Brasil de volta para Portugal, vinte e três judeus sefarditas expulsos de Recife chegaram a Nova Amsterdam — a futura Nova York. A mesma empresa que os perseguiu acabou os protegendo por interesse comercial.
+        <br><br>
+        Este paper parte de uma tese simples e radical: a empresa não é uma invenção do capitalismo moderno. É o operador constante pelo qual todas as sociedades humanas organizaram o valor — do sal ao dado, do gado ao algoritmo. E a geopolítica nunca foi contexto externo ao negócio: desde os fenícios, inteligência territorial <em>é</em> business intelligence. O paper traça essa cadeia do Mediterrâneo antigo até a Gonçalves &amp; Co., e propõe que compreender essa genealogia é condição para empreender com horizonte de longa duração — não de exit em cinco anos.
+      </p>
+      <div class="paper-kw">
+        <span class="kw">pancronia</span><span class="kw">empresa civilizatória</span>
+        <span class="kw">venture building</span><span class="kw">geopolítica</span>
+        <span class="kw">VOC — Companhia Holandesa das Índias</span>
+        <span class="kw">WIC — Brasil Holandês</span>
+        <span class="kw">tulpenwoede — bolha das tulipas (1637)</span>
+        <span class="kw">Bildung</span>
+        <span class="kw">cyborg</span><span class="kw">Indústria 5.0</span>
+        <span class="kw">substrato analógico</span><span class="kw">Verstehen</span>
+      </div>
+      <div class="paper-meta">
+        <span>Gonçalves Machado, G. — v.01, 2026</span>
+        <span>Hubstry DeepTech / Instituto PCIHᶟ</span>
+        <span>ORCID: <a href="https://orcid.org/0009-0008-1083-0784" target="_blank">0009-0008-1083-0784</a></span>
+        <span><a href="https://zenodo.org/search?q=machado+gon%C3%A7alves+hubstry&l=list&p=1&s=10&sort=bestmatch" target="_blank">→ Ver no Zenodo</a></span>
+      </div>
+    </div>
+
+    <!-- OUTROS PAPERS -->
+    <div class="papers-grid">
+      <div class="paper-card amber">
+        <span class="pc-tag">IoT · Protocolo · TRL 4</span>
+        <div class="pc-title">Nautam HPG — Harmonic Protocol Grid</div>
+        <p class="pc-body">Protocolo de comunicação IoT baseado em séries harmônicas. Três publicações peer-reviewed no Zenodo. Arquitetura física + analógica + quântica. Hardware quântico supercondutivo depende de nióbio — do qual o Brasil detém 89,8% das reservas mundiais.</p>
+        <a href="https://doi.org/10.5281/zenodo.19056387" target="_blank" class="pc-doi">DOI: 10.5281/zenodo.19056387 →</a>
+      </div>
+      <div class="paper-card">
+        <span class="pc-tag">Logística · Quântico · TRL 4→5</span>
+        <div class="pc-title">QUBO-VRP — Otimização de Rota Quântica-Ready</div>
+        <p class="pc-body">Benchmark D-Wave neal vs Google OR-Tools em dataset Porto Taxi GPS real (442 táxis). 66% de gap closure, 48,6% redução de CO₂, 7,5× mais rápido que Builtin SA. Formulação escala para QPU real sem mudança de código.</p>
+        <a href="https://doi.org/10.5281/zenodo.20467804" target="_blank" class="pc-doi">DOI: 10.5281/zenodo.20467804 →</a>
+      </div>
+      <div class="paper-card green">
+        <span class="pc-tag">Matemática · Semiótica · Quântico</span>
+        <div class="pc-title">π√f(A) — Framework Matemático Harmônico</div>
+        <p class="pc-body">Álgebra hexarrelacional e extensões quânticas. Bijeção canônica entre os 64 perfis binários do GuruDev e base computacional de 6 qubits. Fundamento matemático do protocolo semântico da interface clássico-quântica.</p>
+        <a href="https://doi.org/10.5281/zenodo.18776462" target="_blank" class="pc-doi">DOI: 10.5281/zenodo.18776462 →</a>
+      </div>
+      <div class="paper-card">
+        <span class="pc-tag">Direito · Compliance · IA</span>
+        <div class="pc-title">Teoria Geral do Direito: Natural, Pancrônico e Comparado</div>
+        <p class="pc-body">1.034 páginas. CC BY-SA 4.0. Fundamento teórico da Lex-IO-Graph e do motor IPII (Interação Paramétrica Iterativa por Interoperabilidade) para compliance jurídico automatizado.</p>
+        <a href="https://doi.org/10.5281/zenodo.20597727" target="_blank" class="pc-doi">DOI: 10.5281/zenodo.20597727 →</a>
+      </div>
+      <div class="paper-card amber">
+        <span class="pc-tag">Semiótica · Programação · Linguagem</span>
+        <div class="pc-title">Semiografia v.0 — Escrita do Sentido</div>
+        <p class="pc-body">Fundamento semiótico do GuruDev® — linguagem de programação ontológica. Peircean semiotics aplicada a arquitetura de linguagem de programação. Programação Comparada como campo fundado.</p>
+        <a href="https://doi.org/10.5281/zenodo.19546051" target="_blank" class="pc-doi">DOI: 10.5281/zenodo.19546051 →</a>
+      </div>
+      <div class="paper-card green">
+        <span class="pc-tag">Geopolítica · Overall 720°</span>
+        <div class="pc-title">Brasil como Nó Estratégico Global — Relatório Nº 1</div>
+        <p class="pc-body">A arquitetura legal e tecnológica das novas parcerias digitais. Matriz 4×4 (Física/Analógica/Digital/Quântica × Legal/Tech/Geopolítico/Recursos). Caso Serra Verde, REDATA, Parceria Digital BR-UE.</p>
+        <a href="https://overall720-polymath-intelligence.netlify.app/" target="_blank" class="pc-doi">→ Acessar relatório completo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ ECOSSISTEMA ══ -->
+<section id="ecossistema">
+  <div class="container">
+    <span class="eyebrow">Portfólio</span>
+    <h2 class="section-title">Ecossistema Hubstry</h2>
+    <p class="section-lead">Entidades com papéis distintos, horizonte compartilhado de 30 anos. A Gonçalves &amp; Co. é o nó de interface estratégica e tática.</p>
+
+    <div class="eco-grid">
+      <div class="eco-card amber">
+        <div class="eco-name">Gonçalves &amp; Co. · Logistic Intelligence</div>
+        <div class="eco-role">Interface estratégica/tática — este site</div>
+        <p class="eco-body">Hub institucional de comércio, gestão e logística. Multilinguismo operacional (8 línguas), geopolítica aplicada a cadeias de suprimento, QUBO-VRP como solução tática.</p>
+        <a href="https://goncalvesandco-logistic-intelligence.netlify.app/" target="_blank" class="eco-link">→ Logistic Intelligence (produto)</a>
+      </div>
+      <div class="eco-card">
+        <div class="eco-name">Overall 720° Polymath Intelligence</div>
+        <div class="eco-role">Think &amp; Do Tank · Inteligência geopolítica</div>
+        <p class="eco-body">Série BR-Global Digital Strategic Intelligence. Matriz 4×4 transdisciplinar. Relatório Nº 1: Brasil como Nó Estratégico Global. Publica análise que informa as decisões da Gonçalves &amp; Co.</p>
+        <a href="https://overall720-polymath-intelligence.netlify.app/" target="_blank" class="eco-link">→ Relatório Nº 1</a>
+      </div>
+      <div class="eco-card green">
+        <div class="eco-name">Hubstry DeepTech</div>
+        <div class="eco-role">P&amp;D · Tecnologia · Publicações científicas</div>
+        <p class="eco-body">QUBO-VRP (logística quântica), Nautam HPG (IoT harmônico, TRL 4), GuruDev® (linguagem ontológica), Lex-IO-Graph (compliance jurídico). Microsoft for Startups, Google Cloud, AWS Activate, AIIA.</p>
+        <a href="https://protocolo-hubstry-tecnologia.netlify.app/" target="_blank" class="eco-link">→ Protocolo Geral de Tecnologia</a>
+      </div>
+      <div class="eco-card purple">
+        <div class="eco-name">Gonçalves et Alii</div>
+        <div class="eco-role">Legaltech · Direito Digital · Lex. Data. Bellum.</div>
+        <p class="eco-body">Compliance jurídico digital. Lex-IO-Graph com motor IPII para mapeamento de conformidade legal. ECA Digital (Lei 15.211/2025). Reforma Tributária LC 214/2025 como produto de compliance.</p>
+      </div>
+      <div class="eco-card">
+        <div class="eco-name">Instituto PCIHᶟ</div>
+        <div class="eco-role">ICT · Pesquisa científica · Financiamento público</div>
+        <p class="eco-body">Polymath Cyborg Intelligence Hub. Instituição Científica e Tecnológica planejada para acesso a FINEP, CNPq, FAPERJ e Embrapii. Braço de P&amp;D institucional do ecossistema, distinto de todas as outras entidades.</p>
+      </div>
+      <div class="eco-card amber">
+        <div class="eco-name">Lessa-Machado · Laos UP</div>
+        <div class="eco-role">Marketing · Comunicação multilíngue</div>
+        <p class="eco-body">Marketing em nichos linguísticos internacionais. Agência Laos — plataforma de comunicações digitais. Co-fundada com Rebeca Machado (CMO). Rede Polyograph Pages em 10 idiomas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ APP ══ -->
+<section id="app">
+  <div class="container">
+    <span class="eyebrow">Inteligência operacional em tempo real</span>
+    <h2 class="section-title">App — Painel de Comércio Exterior</h2>
+    <p class="section-lead">Câmbio BRL em tempo real para as moedas dos corredores da Gonçalves &amp; Co. e condições climáticas nos principais portos logísticos. Zero configuração, dados ao vivo.</p>
+
+    <div class="app-wrapper">
+      <div class="app-header">
+        <span class="app-title">Gonçalves &amp; Co. · Operational Dashboard</span>
+        <span class="app-badge">Produção · Dados ao vivo</span>
+      </div>
+      <div class="app-tabs">
+        <button class="app-tab active" onclick="switchTab('fx')">Câmbio BRL</button>
+        <button class="app-tab" onclick="switchTab('clima')">Portos &amp; Clima</button>
+        <button class="app-tab" onclick="switchTab('corredores')">Corredores</button>
+      </div>
+
+      <!-- TAB CÂMBIO -->
+      <div id="tab-fx" class="app-panel active">
+        <div id="fx-grid" class="fx-grid">
+          <div class="fx-card"><div class="fx-pair">BRL/USD</div><div class="fx-rate" id="r-USD">—</div><div class="fx-sub">Dólar americano</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/EUR</div><div class="fx-rate" id="r-EUR">—</div><div class="fx-sub">Euro</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/CHF</div><div class="fx-rate" id="r-CHF">—</div><div class="fx-sub">Franco suíço (EFTA)</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/NOK</div><div class="fx-rate" id="r-NOK">—</div><div class="fx-sub">Coroa norueguesa (EFTA)</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/GBP</div><div class="fx-rate" id="r-GBP">—</div><div class="fx-sub">Libra esterlina</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/ARS</div><div class="fx-rate" id="r-ARS">—</div><div class="fx-sub">Peso argentino (Mercosul)</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/JPY</div><div class="fx-rate" id="r-JPY">—</div><div class="fx-sub">Iene japonês</div></div>
+          <div class="fx-card"><div class="fx-pair">BRL/CNY</div><div class="fx-rate" id="r-CNY">—</div><div class="fx-sub">Yuan chinês</div></div>
+        </div>
+        <div class="fx-status">
+          <span class="dot"></span>
+          <span id="fx-ts">Carregando cotações...</span>
+          · Fonte: open.er-api.com · Atualização horária
+        </div>
+      </div>
+
+      <!-- TAB CLIMA -->
+      <div id="tab-clima" class="app-panel">
+        <select class="porto-select" id="porto-select" onchange="loadClima()">
+          <option value="-23.9,−46.3,Santos — Porto de Santos (SP)">Santos — Porto de Santos (principal porto BR)</option>
+          <option value="-22.9,-43.2,Rio de Janeiro — Porto do Rio de Janeiro">Rio de Janeiro — Porto do Rio de Janeiro</option>
+          <option value="-3.7,-38.5,Pecém — Porto do Pecém (CE)">Pecém — Porto do Pecém (CE)</option>
+          <option value="-12.9,-38.5,Salvador — Porto de Salvador (BA)">Salvador — Porto de Salvador (BA)</option>
+          <option value="-8.1,-34.9,Suape — Porto de Suape (PE)">Suape — Porto de Suape (PE)</option>
+          <option value="-25.5,-49.3,Paranaguá — Porto de Paranaguá (PR)">Paranaguá — Porto de Paranaguá (PR)</option>
+          <option value="-51.2,-30.0,Porto Alegre — Porto de Porto Alegre (RS)">Porto Alegre — Porto de Porto Alegre (RS)</option>
+          <option value="51.9,4.5,Rotterdam — Porto de Rotterdam (NL/UE)">Rotterdam — Porto de Rotterdam (NL/UE)</option>
+          <option value="53.5,10.0,Hamburgo — Porto de Hamburgo (DE)">Hamburgo — Porto de Hamburgo (DE)</option>
+          <option value="43.3,5.4,Marselha — Porto de Marselha (FR)">Marselha — Porto de Marselha (FR)</option>
+          <option value="59.9,10.7,Oslo — Porto de Oslo (NO/EFTA)">Oslo — Porto de Oslo (NO/EFTA)</option>
+          <option value="47.4,8.5,Zurique — Hub logístico suíço (EFTA)">Zurique — Hub logístico suíço (EFTA)</option>
+        </select>
+        <div id="clima-result" class="clima-loading">Selecione um porto para ver as condições climáticas atuais.</div>
+      </div>
+
+      <!-- TAB CORREDORES -->
+      <div id="tab-corredores" class="app-panel">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem">
+          <div style="border:0.5px solid var(--border);border-top:2px solid var(--amber);padding:1.25rem">
+            <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);margin-bottom:0.5rem">Corredor Mercosul-EFTA</div>
+            <div style="font-size:13px;color:var(--sky);margin-bottom:0.5rem;font-weight:600">Brasil ↔ Suíça · Noruega · Islândia</div>
+            <div style="font-size:12.5px;color:var(--muted);line-height:1.65">Acordo assinado set/2025, em ratificação. 96% tarifas suíças eliminadas. PIB combinado USD 4,3T. Capital paciente EFTA para deep tech e logística sustentável.</div>
+          </div>
+          <div style="border:0.5px solid var(--border);border-top:2px solid var(--teal);padding:1.25rem">
+            <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal);margin-bottom:0.5rem">Acordo UE-Mercosul</div>
+            <div style="font-size:13px;color:var(--sky);margin-bottom:0.5rem;font-weight:600">Brasil ↔ Alemanha · França · Itália · UE27</div>
+            <div style="font-size:12.5px;color:var(--muted);line-height:1.65">Em ratificação 2026–2027. Maior acordo birregional por PIB combinado. Exigências de rastreabilidade, certificação de origem e conformidade ambiental da UE sobre exportações brasileiras.</div>
+          </div>
+          <div style="border:0.5px solid var(--border);border-top:2px solid var(--green);padding:1.25rem">
+            <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--green);margin-bottom:0.5rem">Parceria Digital BR-UE</div>
+            <div style="font-size:13px;color:var(--sky);margin-bottom:0.5rem;font-weight:600">Vigente desde 11 jun/2026</div>
+            <div style="font-size:12.5px;color:var(--muted);line-height:1.65">Adequação LGPD-GDPR. Fluxo de dados transatlântico sem fricção. Cadeias de suprimento digitais BR-UE operam sem risco de adequacy desde junho/2026.</div>
+          </div>
+          <div style="border:0.5px solid var(--border);border-top:2px solid #7c5cbf;padding:1.25rem">
+            <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#7c5cbf;margin-bottom:0.5rem">Reforma Tributária — Janela 2026</div>
+            <div style="font-size:13px;color:var(--sky);margin-bottom:0.5rem;font-weight:600">LC 214/2025 · IBS + CBS · 2027–2033</div>
+            <div style="font-size:12.5px;color:var(--muted);line-height:1.65">Plataformas digitais de logística tornam-se agentes fiscais compulsórios. REDATA com janela estrutural exclusiva de 2026 — após 2027 a Reforma Tributária veda novos benefícios. Adaptar agora.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ CONTATO ══ -->
+<section id="contato">
+  <div class="container">
+    <span class="eyebrow">Conversa exploratória · Sem custo</span>
+    <h2 class="section-title">Entre em contato</h2>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <p>Se você exporta, importa, opera logística internacional ou precisa projetar uma cadeia de suprimento para os novos corredores comerciais — envie uma linha sobre seu desafio. A Gonçalves &amp; Co. avalia se e como pode contribuir.</p>
+        <span class="contato-label">E-mail</span>
+        <a href="mailto:guilhermemachado@hubstry.onmicrosoft.com">guilhermemachado@hubstry.onmicrosoft.com</a>
+        <span class="contato-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/guilhermegoncalvesmachado" target="_blank">Guilherme Gonçalves Machado</a>
+        <span class="contato-label">WhatsApp</span>
+        <a href="https://wa.me/5521967251593" target="_blank">+55 21 96725-1593</a>
+        <span class="contato-label">Logistic Intelligence</span>
+        <a href="https://goncalvesandco-logistic-intelligence.netlify.app/" target="_blank">goncalvesandco-logistic-intelligence.netlify.app</a>
+        <span class="contato-label">ORCID</span>
+        <a href="https://orcid.org/0009-0008-1083-0784" target="_blank">0009-0008-1083-0784</a>
+        <span class="contato-label">Rio de Janeiro · Brasil · 23°S 43°W</span>
+      </div>
+      <div>
+        <form onsubmit="return false">
+          <div class="form-group">
+            <label>Nome</label>
+            <input type="text" placeholder="Seu nome">
+          </div>
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="seu@email.com">
+          </div>
+          <div class="form-group">
+            <label>Empresa / Organização</label>
+            <input type="text" placeholder="Opcional">
+          </div>
+          <div class="form-group">
+            <label>Mensagem</label>
+            <textarea placeholder="Descreva seu desafio em logística, comércio exterior ou gestão de cadeia de suprimento."></textarea>
+          </div>
+          <a href="mailto:guilhermemachado@hubstry.onmicrosoft.com" class="btn btn-primary" style="display:inline-block">Enviar via e-mail →</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <strong style="color:var(--sky)">Gonçalves &amp; Co. · Logistic Intelligence</strong><br>
+        Comércio, Gestão e Logística · Rio de Janeiro, Brasil<br>
+        Parte do ecossistema <a href="https://protocolo-hubstry-tecnologia.netlify.app/" target="_blank">Hubstry DeepTech</a><br>
+        Inteligência geopolítica: <a href="https://overall720-polymath-intelligence.netlify.app/" target="_blank">Overall 720° Polymath Intelligence</a>
+      </div>
+      <div style="text-align:right">
+        © 2026 Gonçalves &amp; Co. Todos os direitos reservados.<br>
+        Corpus intelectual: <a href="https://zenodo.org/search?q=machado+gon%C3%A7alves+hubstry" target="_blank">Zenodo · CC BY 4.0</a><br>
+        QUBO-VRP: <a href="https://github.com/Hubstry-DeepTech/hubstry-logistics-quantum" target="_blank">GitHub</a> · <a href="https://doi.org/10.5281/zenodo.20467804" target="_blank">DOI 10.5281/zenodo.20467804</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── NAV: fechar menu mobile ao clicar em link ──
+document.querySelectorAll('.nav-links a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    document.querySelector('.nav-links').classList.remove('open');
+  });
+});
+
+// ── TABS ──
+function switchTab(id){
+  document.querySelectorAll('.app-tab').forEach((t,i)=>{
+    const ids=['fx','clima','corredores'];
+    t.classList.toggle('active', ids[i]===id);
+  });
+  document.querySelectorAll('.app-panel').forEach(p=>{
+    p.classList.toggle('active', p.id==='tab-'+id);
+  });
+  if(id==='clima') loadClima();
+}
+
+// ── CÂMBIO: open.er-api.com (sem chave, CORS aberto) ──
+async function loadFX(){
+  const symbols=['USD','EUR','CHF','NOK','GBP','ARS','JPY','CNY'];
+  try{
+    const r = await fetch('https://open.er-api.com/v6/latest/BRL');
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    if(d.result !== 'success') throw new Error('API error');
+    const rates = d.rates;
+    symbols.forEach(s=>{
+      const el = document.getElementById('r-'+s);
+      if(el && rates[s]){
+        // BRL/X = 1/rates[X] porque a API retorna BRL→X
+        // open.er-api base=BRL retorna quanto de X vale 1 BRL
+        el.textContent = rates[s].toFixed(s==='ARS'?0:s==='JPY'?2:4);
+      }
+    });
+    const ts = new Date(d.time_last_update_unix*1000);
+    document.getElementById('fx-ts').textContent =
+      'Atualizado: '+ts.toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'});
+  } catch(e){
+    // Fallback silencioso — mostra mensagem mas não quebra o layout
+    document.getElementById('fx-ts').textContent =
+      'Cotações indisponíveis no momento. Tente recarregar a página.';
+    symbols.forEach(s=>{
+      const el=document.getElementById('r-'+s);
+      if(el) el.textContent='—';
+    });
+  }
+}
+
+// ── CLIMA: open-meteo.com (sem chave, CORS aberto) ──
+async function loadClima(){
+  const sel = document.getElementById('porto-select');
+  const val = sel.value;
+  const parts = val.split(',');
+  const lat = parseFloat(parts[0]);
+  const lon = parseFloat(parts[1]);
+  const nome = parts.slice(2).join(',');
+  const el = document.getElementById('clima-result');
+  el.innerHTML = '<div class="clima-loading">Carregando dados climáticos...</div>';
+  try{
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,weather_code,precipitation&wind_speed_unit=kmh&timezone=auto`;
+    const r = await fetch(url);
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    const d = await r.json();
+    const c = d.current;
+    const wc = interpretWC(c.weather_code);
+    el.innerHTML = `
+      <div class="clima-card">
+        <div class="clima-cidade">${nome}</div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:0.5rem">${wc}</div>
+        <div class="clima-dados">
+          <div class="clima-item">
+            <div class="ci-label">Temperatura</div>
+            <div class="ci-val">${c.temperature_2m.toFixed(1)}<span class="ci-unit">°C</span></div>
+          </div>
+          <div class="clima-item">
+            <div class="ci-label">Umidade</div>
+            <div class="ci-val">${c.relative_humidity_2m}<span class="ci-unit">%</span></div>
+          </div>
+          <div class="clima-item">
+            <div class="ci-label">Vento</div>
+            <div class="ci-val">${c.wind_speed_10m.toFixed(0)}<span class="ci-unit">km/h</span></div>
+          </div>
+          <div class="clima-item">
+            <div class="ci-label">Precipitação</div>
+            <div class="ci-val">${c.precipitation.toFixed(1)}<span class="ci-unit">mm</span></div>
+          </div>
+        </div>
+        <div style="font-size:10.5px;color:var(--dim);margin-top:0.75rem">
+          Fonte: Open-Meteo · ${new Date().toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'})}
+        </div>
+      </div>`;
+  } catch(e){
+    el.innerHTML = '<div class="clima-loading">Dados climáticos indisponíveis. Verifique a conexão e tente novamente.</div>';
+  }
+}
+
+function interpretWC(code){
+  if(code===0) return '☀️ Céu limpo';
+  if(code<=2) return '🌤 Parcialmente nublado';
+  if(code===3) return '☁️ Nublado';
+  if(code<=49) return '🌫 Neblina / névoa';
+  if(code<=59) return '🌦 Garoa';
+  if(code<=69) return '🌧 Chuva';
+  if(code<=79) return '🌨 Neve / granizo';
+  if(code<=82) return '🌧 Pancadas de chuva';
+  if(code<=99) return '⛈ Tempestade';
+  return '🌡 Condições variáveis';
+}
+
+// ── INIT ──
+loadFX();
+// Atualizar câmbio a cada 30 minutos
+setInterval(loadFX, 30*60*1000);
+</script>
+</body>
 </html>
