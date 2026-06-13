@@ -632,12 +632,16 @@ hr.rule-amber{border:none;border-top:0.5px solid var(--border2);margin:0}
   <div class="container">
     <div class="eyebrow">Infraestrutura operacional</div>
     <h2 class="headline" style="margin:0.5rem 0 0.75rem">Multilinguismo não é diferencial. É requisito.</h2>
-    <p class="body" style="max-width:640px;margin-bottom:2rem">Em comércio exterior, a língua da negociação determina o outcome. Uma cláusula mal compreendida em alemão num contrato suíço, um termo equivocado em inglês jurídico num foro arbitral, uma classificação tarifária lida só em português quando o destino exige documentação em italiano — são riscos reais, não hipotéticos. A Gonçalves &amp; Co. opera em dois registros linguísticos distintos: línguas operacionais contemporâneas para negociação e documentação ativa, e línguas de herança e acervo para pesquisa de precedentes históricos, redes diaspóricas e terminologia jurídica de origem.</p>
+    <p class="body" style="max-width:680px;margin-bottom:2.5rem">Em comércio exterior, a língua da negociação determina o outcome. Uma cláusula mal compreendida em alemão num contrato suíço, um termo equivocado em inglês jurídico num foro arbitral, uma classificação tarifária lida só em português quando o destino exige documentação em italiano — são riscos reais, não hipotéticos. A Gonçalves &amp; Co. opera em dois registros linguísticos distintos: <strong style="color:var(--teal)">línguas operacionais contemporâneas</strong> para negociação e documentação ativa, e <strong style="color:var(--amber)">línguas de herança e acervo</strong> para pesquisa de precedentes históricos, redes diaspóricas e terminologia jurídica de origem.</p>
 
-    <div class="eyebrow" style="margin:2rem 0 0.75rem;color:var(--teal)">Línguas operacionais contemporâneas</div>
-    <p class="body" style="max-width:600px;margin-bottom:1rem">Capacidade de ler regulação primária, redigir cláusulas contratuais e conduzir negociação direta — não de conversação.</p>
+    <!-- BLOCO OPERACIONAIS -->
+    <div style="border-left:2px solid var(--teal);padding-left:1.25rem;margin-bottom:0.75rem">
+      <div class="eyebrow" style="color:var(--teal)">Línguas operacionais contemporâneas</div>
+      <p class="caption" style="margin-top:0.3rem">Capacidade de ler regulação primária, redigir cláusulas contratuais e conduzir negociação direta — não de conversação.</p>
+    </div>
 
-    <div class="lang-grid" style="margin-bottom:2.5rem">
+    <!-- Grid 3×2 para as 6 línguas principais — uniforme, sem quebra estranha -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);margin-bottom:1px">
       <div class="lang-card">
         <span class="lang-flag">🇧🇷</span>
         <div class="lang-name">Português</div>
@@ -668,45 +672,59 @@ hr.rule-amber{border:none;border-top:0.5px solid var(--border2);margin:0}
         <div class="lang-name">Français</div>
         <div class="lang-use">França, Bélgica, organismos internacionais — OIT (Organização Internacional do Trabalho), OMC (Organização Mundial do Comércio)</div>
       </div>
-      <div class="lang-card">
+    </div>
+
+    <!-- Russo e Escandinavas: bloco expandido 2 colunas — espaço para o texto real -->
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:1px;background:var(--border);border:0.5px solid var(--border);border-top:none;margin-bottom:2.5rem">
+      <div class="lang-card" style="border-top:2px solid var(--teal)">
         <span class="lang-flag">🇷🇺</span>
-        <div class="lang-name">Русский (Russo)</div>
-        <div class="lang-use">Eurásia, rotas alternativas ao eixo EUA-China, parceiros BRICS (Brasil, Rússia, Índia, China, África do Sul) — documentação primária, contratos de commodities estratégicas, acesso a redes comerciais da CEI (Comunidade dos Estados Independentes)</div>
+        <div class="lang-name">Русский — Russo</div>
+        <div class="lang-use">Eurásia, rotas alternativas ao eixo EUA-China, parceiros BRICS (Brasil, Rússia, Índia, China, África do Sul). Documentação primária de commodities estratégicas, contratos de energia e minerais, acesso a redes comerciais da CEI (Comunidade dos Estados Independentes).</div>
       </div>
-      <div class="lang-card">
-        <span class="lang-flag">🇸🇪🇳🇴</span>
-        <div class="lang-name">Escandinavas <em>lato sensu</em></div>
-        <div class="lang-use"><strong>Nota de rigor acadêmico:</strong> <em>stricto sensu</em>, "línguas escandinavas" designa apenas sueco, dinamarquês e norueguês (ramo nórdico continental). <em>Lato sensu</em>, o grupo inclui também islandês e feroês (nórdico insular), além do finlandês por proximidade geopolítica — embora este seja urálico, não indo-europeu. Contexto operacional: corredor Mercosul-EFTA (Noruega, Islândia e Liechtenstein são membros da EFTA — European Free Trade Association — Associação Europeia de Livre Comércio); capital sueco e dinamarquês mobilizando para deep tech e logística sustentável.</div>
+      <div class="lang-card" style="border-top:2px solid var(--teal)">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.5rem">
+          <span style="font-size:22px;line-height:1">🇸🇪 🇳🇴 🇩🇰 🇮🇸</span>
+          <div class="lang-name" style="margin:0">Escandinavas <em>lato sensu</em></div>
+        </div>
+        <div class="lang-use">
+          <span style="display:inline-block;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:0.4rem">Nota de rigor acadêmico</span><br>
+          <em>Stricto sensu</em>: "línguas escandinavas" designa apenas sueco, dinamarquês e norueguês — ramo nórdico continental da família germânica. <em>Lato sensu</em>: o grupo inclui também islandês e feroês (nórdico insular), e por vezes o finlandês por contiguidade geopolítica — embora este seja língua urálica, não indo-europeia, portanto tecnicamente fora do grupo.<br><br>
+          <span style="color:var(--sky);font-weight:500">Contexto operacional:</span> Noruega e Islândia são membros da EFTA (European Free Trade Association — Associação Europeia de Livre Comércio) — parceiros diretos do corredor Mercosul-EFTA. Capital sueco e dinamarquês mobilizando para deep tech e logística sustentável via acordos com Mercosul.
+        </div>
       </div>
     </div>
 
-    <div class="eyebrow" style="margin:0 0 0.75rem;color:var(--amber)">Línguas de herança, acervo histórico e pesquisa</div>
-    <p class="body" style="max-width:640px;margin-bottom:1rem">Línguas que não circulam em contratos contemporâneos, mas que abrem acesso a acervos documentais históricos de alto valor para pesquisa de precedentes de DIPr (Direito Internacional Privado), usos e costumes de comércio de longa duração, terminologia jurídica de origem, e redes comerciais de comunidades diaspóricas. Um ativo raro em assessoria de comércio exterior.</p>
+    <!-- BLOCO HERANÇA -->
+    <div style="border-left:2px solid var(--amber);padding-left:1.25rem;margin-bottom:0.75rem">
+      <div class="eyebrow" style="color:var(--amber)">Línguas de herança, acervo histórico e pesquisa</div>
+      <p class="caption" style="margin-top:0.3rem">Não circulam em contratos contemporâneos — abrem acesso a acervos documentais históricos, usos e costumes de comércio de longa duração, e redes de confiança diaspóricas que a documentação contemporânea não captura.</p>
+    </div>
 
-    <div class="lang-grid">
+    <!-- Grid 2×2 para herança — espaço generoso para contexto histórico -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border)">
       <div class="lang-card" style="border-top:2px solid var(--amber)">
         <span class="lang-flag">📜</span>
         <div class="lang-name">Latim</div>
-        <div class="lang-use">Terminologia jurídica de origem — <em>pacta sunt servanda</em>, <em>bona fides</em>, <em>rebus sic stantibus</em>. Cláusulas que ainda aparecem em contratos internacionais e arbitragens. Base do direito comercial europeu.</div>
+        <div class="lang-use">Base do direito comercial europeu. Terminologia jurídica viva em contratos internacionais e arbitragens: <em>pacta sunt servanda</em> (os contratos devem ser cumpridos), <em>bona fides</em> (boa-fé objetiva), <em>rebus sic stantibus</em> (cláusula de imprevisão). Leitura de fontes primárias do direito romano-mercantil e do <em>ius commune</em> medieval.</div>
       </div>
       <div class="lang-card" style="border-top:2px solid var(--amber)">
         <span class="lang-flag">🏛</span>
-        <div class="lang-name">Vêneto (Sereníssima)</div>
-        <div class="lang-use">A língua franca do comércio mediterrâneo por séculos — Sereníssima República de Veneza (697–1797). Acervos da Serenissima são consultados em disputas de DIPr sobre precedentes de direito marítimo comercial, usos e costumes de foro arbitral, e rotas históricas do Levante. Comunidade vêneta ativa no Sul do Brasil (RS/SC).</div>
+        <div class="lang-name">Vêneto — Língua da Sereníssima</div>
+        <div class="lang-use">A língua franca do comércio mediterrâneo por onze séculos — Sereníssima República de Veneza (697–1797). O vêneto foi o idioma dos contratos de especiarias, das rotas do Levante, do direito marítimo mercantil e dos primeiros instrumentos de crédito documentado da Europa. Acervos da Serenissima consultados em disputas de DIPr (Direito Internacional Privado) sobre precedentes de direito marítimo. Comunidade vêneta ativa no Sul do Brasil (RS/SC) com memória cultural e redes de herança vivas.</div>
       </div>
       <div class="lang-card" style="border-top:2px solid var(--amber)">
         <span class="lang-flag">✡</span>
         <div class="lang-name">Ídiche</div>
-        <div class="lang-use">Redes comerciais Ashkenazi operaram como infraestrutura informal de crédito e comércio na Europa Central e Oriental. Acervo documental em ídiche relevante para pesquisa de redes diaspóricas, precedentes contratuais históricos e usos e costumes de comunidades comerciais de longa duração.</div>
+        <div class="lang-use">Redes comerciais Ashkenazi operaram por séculos como infraestrutura informal de crédito, câmbio e comércio atacadista na Europa Central e Oriental — com sofisticação contratual própria, documentada em ídiche. Relevante para pesquisa de usos e costumes de comunidades comerciais de longa duração, precedentes de arbitragem comunitária e redes diaspóricas contemporâneas no Brasil e na Argentina.</div>
       </div>
       <div class="lang-card" style="border-top:2px solid var(--amber)">
         <span class="lang-flag">⚜</span>
-        <div class="lang-name">Judeo-espanhol (Ladino)</div>
-        <div class="lang-use">Língua das comunidades Sefarditas — acervo comercial do mediterrâneo oriental, Império Otomano e rota das especiarias. Complementa o ídiche como língua de herança de redes comerciais diaspóricas de alta sofisticação contratual histórica.</div>
+        <div class="lang-name">Judeo-espanhol — Ladino</div>
+        <div class="lang-use">Língua das comunidades Sefarditas expulsas da Península Ibérica em 1492. O ladino foi o idioma do comércio mediterrâneo oriental e das redes mercantis do Império Otomano — tecido sutil de confiança, crédito e arbitragem que operou por séculos entre Istambul, Salônica, Amsterdã e o Atlântico. Acervo complementar ao ídiche para pesquisa de redes diaspóricas e rotas históricas das especiarias.</div>
       </div>
     </div>
 
-    <p class="caption" style="margin-top:1rem">As línguas de herança não substituem as operacionais — ampliam o raio de pesquisa documental e o acesso a redes de confiança de longa duração que documentação contemporânea não captura.</p>
+    <p class="caption" style="margin-top:1rem;max-width:680px">As línguas de herança não substituem as operacionais — ampliam o raio de pesquisa documental e o acesso a redes de confiança de longa duração que documentação contemporânea não captura. Um ativo genuinamente raro em assessoria de comércio exterior.</p>
   </div>
 </section>
 
